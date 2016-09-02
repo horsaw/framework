@@ -1,0 +1,10 @@
+{
+    "name": "horsaw/framework",
+    "authors": [
+        {
+            "name": "Joro Stoyanov",
+            "email": "stoyanov.gs@gmail.com"
+        }
+    ],
+    "require": {}
+}
