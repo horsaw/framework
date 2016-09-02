@@ -1,17 +1,20 @@
 {
-    "name": "horsaw/framework",
-    "authors": [
-        {
-            "name": "Joro Stoyanov",
-            "email": "stoyanov.gs@gmail.com"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "Horsaw\\": "src/Horsaw/"
-        }
-    },
-    "require": {
-        "php": ">=5.4"
-    }
+	"name": "horsaw/framework",
+	"authors": [
+		{
+			"name": "Joro Stoyanov",
+			"email": "stoyanov.gs@gmail.com"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Horsaw\\": "src/Horsaw/"
+		},
+		"files": [
+			"src/Horsaw/Models/Posts/helpers.php"
+		]
+	},
+	"require": {
+		"php": ">=5.4"
+	}
 }
