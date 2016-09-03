@@ -39,7 +39,7 @@ class App {
 	 *
 	 * @return \Horsaw\Theme\App
 	 */
-	public function get_instance() {
+	public static function get_instance() {
 		if ( is_null( self::$instance ) ) {
 			self::$instance = new self;
 		}
@@ -64,11 +64,11 @@ class App {
 	/**
 	 * Setups the Theme.
 	 *
-	 * @access protected
+	 * @access public
 	 *
 	 * @return void
 	 */
-	protected function setup_theme() {
+	public function setup_theme() {
 		/*
 		|--------------------------------------------------------------------------
 		| Theme Supports
@@ -109,11 +109,11 @@ class App {
 	/**
 	 * Registers Custom Post Types.
 	 *
-	 * @access protected
+	 * @access public
 	 *
 	 * @return void
 	 */
-	protected function register_custom_post_types() {
+	public function register_custom_post_types() {
 		// Register Custom Post Types
 		Post_Type::register();
 	}
@@ -121,11 +121,11 @@ class App {
 	/**
 	 * Registers Custom Taxonomies.
 	 *
-	 * @access protected
+	 * @access public
 	 *
 	 * @return void
 	 */
-	protected function register_custom_taxonomies() {
+	public function register_custom_taxonomies() {
 		// Register Custom Taxonomies
 		Taxonomy::register();
 	}
