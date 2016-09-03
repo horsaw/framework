@@ -11,6 +11,7 @@
 			"Horsaw\\": "src/Horsaw/"
 		},
 		"files": [
+			"src/Horsaw/helpers.php",
 			"src/Horsaw/Models/Posts/helpers.php"
 		]
 	},
