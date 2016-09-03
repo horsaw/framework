@@ -5,26 +5,26 @@ namespace Horsaw\Helpers;
 use Horsaw\Taxonomy as Base_Taxonomy;
 
 final class Taxonomy {
-	public static $post_types = [];
+	public static $taxonomies = [];
 
 	/**
-	 * Creates a new Post Type object.
+	 * Creates a new Taxonomy object.
 	 *
 	 * @access public
 	 * @static
 	 * 
-	 * @param string $post_type
+	 * @param string $taxonomy
 	 * @param string $singular_name
 	 * @param string $plural_name
 	 *
-	 * @return \Nes\Post_Type
+	 * @return \Nes\taxonomy
 	 */
-	public static function make( $post_type, $singular_name, $plural_name ) {
-		$post_type_object = Base_Post_Type::make( $post_type, $singular_name, $plural_name );
+	public static function make( $taxonomy, $singular_name, $plural_name ) {
+		$taxonomy_object = Base_Taxonomy::make( $taxonomy, $singular_name, $plural_name );
 
-		self::$post_types[] = $post_type_object;
+		self::$taxonomys[] = $taxonomy_object;
 
-		return $post_type_object;
+		return $taxonomy_object;
 	}
 
 	/**
@@ -36,8 +36,8 @@ final class Taxonomy {
 	 * @return array
 	 */
 	public static function register() {
-		foreach ( self::$post_types as $post_type ) {
-			register_post_type( $post_type->post_type, $post_type->post_type_data );
+		foreach ( self::$taxonomys as $taxonomy ) {
+			register_taxonomy( $taxonomy->taxonomy, $taxonomy->taxonomy_data );
 		}
 	}
 }
