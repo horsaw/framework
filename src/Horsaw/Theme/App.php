@@ -11,7 +11,7 @@ class App {
 	 *
 	 * @var Horsaw\Theme\App
 	 */
-	protected $instance = null;
+	protected static $instance = null;
 
 	/**
 	 * Theme absolute path.
