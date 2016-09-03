@@ -22,7 +22,7 @@ final class Taxonomy {
 	public static function make( $taxonomy, $singular_name, $plural_name ) {
 		$taxonomy_object = Base_Taxonomy::make( $taxonomy, $singular_name, $plural_name );
 
-		self::$taxonomys[] = $taxonomy_object;
+		self::$taxonomies[] = $taxonomy_object;
 
 		return $taxonomy_object;
 	}
@@ -36,7 +36,7 @@ final class Taxonomy {
 	 * @return array
 	 */
 	public static function register() {
-		foreach ( self::$taxonomys as $taxonomy ) {
+		foreach ( self::$taxonomies as $taxonomy ) {
 			register_taxonomy( $taxonomy->taxonomy, $taxonomy->taxonomy_data );
 		}
 	}
