@@ -54,6 +54,21 @@ class Taxonomy {
 	}
 
 	/**
+	 * Sets the Taxonomy Post Types.
+	 *
+	 * @access public
+	 *
+	 * @param array $post_types
+	 *
+	 * @return $this
+	 */
+	public function set_post_types( $post_types ) {
+		$this->post_types = $post_types;
+
+		return $this;
+	}
+
+	/**
 	 * Sets the Post Type Labels.
 	 *
 	 * @access private
