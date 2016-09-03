@@ -4,6 +4,7 @@ namespace Horsaw\Theme;
 
 use Horsaw\Helpers\Post_Type;
 use Horsaw\Helpers\Taxonomy;
+use Horsaw\Assets\Asset;
 
 class App {
 	/**
@@ -59,6 +60,9 @@ class App {
 
 		add_action( 'init', array( $this, 'register_custom_post_types' ) );
 		add_action( 'init', array( $this, 'register_custom_taxonomies' ) );
+
+
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_assets' ) );
 	}
 
 	/**
@@ -128,5 +132,22 @@ class App {
 	public function register_custom_taxonomies() {
 		// Register Custom Taxonomies
 		Taxonomy::register();
+	}
+
+	/**
+	 * Register Custom Assets
+	 *
+	 * @access public
+	 *
+	 * @return void
+	 */
+	public function register_assets() {
+		require_once $this->theme_path . 'assets/frontend.php';
+
+		foreach ( Asset::$assets as $type => $assets ) {
+			foreach ( $assets as $asset ) {
+				$asset->init();
+			}
+		}
 	}
 }
