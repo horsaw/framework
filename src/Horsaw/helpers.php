@@ -15,3 +15,23 @@ function horsaw_fragment( $fragment_path, $params = [] ) {
 		include_once $fragment_full_path;
 	}
 }
+
+/**
+ * Returns the config value for the given option.
+ *
+ * @param string $config
+ *
+ * @return mixed
+ */
+function horsaw_config( $name ) {
+	$name = explode( '.', $name );
+
+	$config_file_path = get_template_directory() . '/config/' . $name[0] . '.php';
+	$config_contents  = require $config_file_path;
+
+	if ( ! isset( $config_contents[ $name[1] ] ) ) {
+		return false;
+	}
+
+	return $config_contents[ $name[1] ];
+}
