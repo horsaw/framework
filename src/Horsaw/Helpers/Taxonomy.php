@@ -37,7 +37,7 @@ final class Taxonomy {
 	 */
 	public static function register() {
 		foreach ( self::$taxonomies as $taxonomy ) {
-			register_taxonomy( $taxonomy->taxonomy, $taxonomy->taxonomy_data );
+			register_taxonomy( $taxonomy->taxonomy, $taxonomy->post_types, $taxonomy->taxonomy_data );
 		}
 	}
 }

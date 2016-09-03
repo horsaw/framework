@@ -5,6 +5,7 @@ namespace Horsaw;
 class Taxonomy {
 	public $taxonomy_data = array();
 	public $taxonomy = '';
+	public $post_types = [  ];
 	protected $singular_name = '';
 	protected $plural_name = '';
 
@@ -83,7 +84,6 @@ class Taxonomy {
 	 */
 	private function setup() {
 		$this->taxonomy_data = array_merge( $this->taxonomy_data, [
-			'menu_icon'          => 'dashicons-admin-post',
 			'public'             => true,
 			'publicly_queryable' => true,
 			'show_ui'            => true,
