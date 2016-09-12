@@ -129,11 +129,11 @@ class App {
 	/**
 	 * Register Custom Carbon Fields.
 	 *
-	 * @access private
+	 * @access public
 	 *
 	 * @return void
 	 */
-	private function register_carbon_fields_custom_fields() {
+	public function register_carbon_fields_custom_fields() {
 		$directory = $this->theme_path . 'options/carbon-fields';
 
 		if ( ! file_exists( $directory ) ) {
