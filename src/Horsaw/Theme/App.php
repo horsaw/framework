@@ -117,6 +117,32 @@ class App {
 				require_once $this->theme_path . $file;
 			}
 		}
+
+		/*
+		|--------------------------------------------------------------------------
+		| Carbon Fields
+		|--------------------------------------------------------------------------
+		*/
+		add_action( 'carbon_register_fields', array( $this, 'register_carbon_fields_custom_fields' ) );
+	}
+
+	/**
+	 * Register Custom Carbon Fields.
+	 *
+	 * @access private
+	 *
+	 * @return void
+	 */
+	private function register_carbon_fields_custom_fields() {
+		$directory = $this->theme_path . 'options/carbon-fields';
+
+		if ( ! file_exists( $directory ) ) {
+			return;
+		}
+
+		foreach ( glob( "{$directory}/*" ) as $filename ) {
+			require $filename;
+		}
 	}
 
 	/**
