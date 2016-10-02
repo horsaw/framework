@@ -140,7 +140,7 @@ class App {
 			return;
 		}
 
-		foreach ( glob( "{$directory}/*" ) as $filename ) {
+		foreach ( glob( "{$directory}/*/*.php" ) as $filename ) {
 			require $filename;
 		}
 	}
