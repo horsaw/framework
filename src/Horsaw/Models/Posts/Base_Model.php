@@ -25,6 +25,20 @@ abstract class Base_Model {
 	protected $metas = [];
 
 	/**
+	 * Constructor.
+	 *
+	 * @access public
+	 *
+	 * @param int
+	 *
+	 * @return \Horsaw\Models\Posts\Base_Model
+	 */
+	public function __construct( $post_id ) {
+		$this->ID      = absint( $post_id );
+		$this->wp_post = get_post( $post_id );
+	}
+
+	/**
 	 * Handle for magic methods.
 	 *
 	 * @access public
