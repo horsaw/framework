@@ -74,4 +74,42 @@ abstract class Base_Model {
 		// Otherwise
 		return false;
 	}
+
+	public function __get( $name ) {
+		// WP Post Data
+		if ( property_exists( $this->wp_post, $name ) ) {
+			return $this->wp_post->$name;
+		}
+
+		// Meta Data
+		if ( array_key_exists( $name, $this->metas ) ) {
+			return call_user_func_array( [ $this, 'get_meta' ], explode( ':', $this->metas[ $name ] ) );
+		}
+
+		return false;
+	}
+
+	/**
+	 * Returns an instance of the Model.
+	 *
+	 * @access public
+	 * @static
+	 *
+	 * @param int $the_post Post ID
+	 *
+	 * @return \Horsaw\Models\Posts\Base_Model
+	 */
+	public static function get( $the_post ) {
+		try {
+			$object = new static( $the_post );
+
+			return $object;
+		} catch ( Exception $e ) {
+			return false;
+		}
+	}
+
+	public function get_meta( $meta_key, $meta_type = null ) {
+		return carbon_get_post_meta( $this->ID, $meta_key, $meta_type );
+	}
 }
